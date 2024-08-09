@@ -2,9 +2,14 @@
 
 import { Box, Button, Stack, TextField } from '@mui/material'
 import { useState } from 'react'
+import LandingPage from './LandingPage'
+import { useRouter } from 'next/navigation'
 // import styles from "./page.module.css";
 
 export default function Home() {
+  const router = useRouter()
+  const [showChat, setShowChat] = useState(false)
+
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
@@ -12,8 +17,8 @@ export default function Home() {
     },
   ])
   const [message, setMessage] = useState('')
-
   const [isLoading, setIsLoading] = useState(false)
+
 
   const sendMessage = async () => {
     if (!message.trim() || isLoading) return; // Don't send empty messages
@@ -75,7 +80,7 @@ export default function Home() {
   }
 
 // Chat Interface
-  return (
+  const ChatInterface = () => (
     // Conversation Box  
     <Box
       width="100vw"
@@ -143,4 +148,5 @@ export default function Home() {
       </Stack>
     </Box>
   )
+  return showChat ? <ChatInterface /> : <LandingPage onStartChat={() => setShowChat(true)} />
 }
