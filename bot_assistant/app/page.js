@@ -1,11 +1,9 @@
 'use client'
-
 import { Box, Button, Typography, Card, CardContent, CardMedia, IconButton, AppBar, Toolbar } from '@mui/material'
 import { useRouter } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
-import CssBaseline from '@mui/material/CssBaseline';
 
 
 // Array of destination objects, each containing name, image URL, and description
