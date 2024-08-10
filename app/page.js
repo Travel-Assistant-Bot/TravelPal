@@ -2,9 +2,8 @@
 
 import { Box, Button, Stack, TextField } from '@mui/material'
 import { useState } from 'react'
-import LandingPage from './LandingPage'
 import { useRouter } from 'next/navigation'
-// import styles from "./page.module.css";
+
 
 export default function Home() {
   const router = useRouter()
