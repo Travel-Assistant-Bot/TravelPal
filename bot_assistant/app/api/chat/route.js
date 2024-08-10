@@ -1,3 +1,4 @@
+
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
 
@@ -33,8 +34,14 @@ Remember to keep the conversation engaging and informative, ensuring that users 
 Ask questions to understand the user\'s preferences for activities, accommodations, and dining.';
 
 
+
+
+
+
+
 export async function POST(req) {
-    const openai = new OpenAI()
+    //const openai = new OpenAI()
+    const openai = new OpenAI(process.env.OPENAI_API_KEY);  
     const data = await req.json()
 
     const completion = await openai.chat.completions.create({
@@ -73,6 +80,4 @@ export async function POST(req) {
     })
     return new NextResponse(stream)
         
-
-}   
-
+}
